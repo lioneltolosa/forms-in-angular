@@ -1,6 +1,6 @@
 <h4>Formularios <small>template</small></h4>
 <hr>
-<form>
+<form (submit)="save(forma)" #forma="ngForm" novalidate="">
 
   <div>
 
@@ -12,7 +12,9 @@
                type="text"
                placeholder="Nombre"
                name="nombre"
-               ngModel>
+               [(ngModel)]="usuario.nombre"
+               minlength="5"
+               required>
       </div>
     </div>
 
@@ -22,7 +24,9 @@
 
         <input class="form-control"
                type="text"
-               placeholder="Apellido">
+               placeholder="Apellido"
+               name="apellido"
+               [(ngModel)]="usuario.apellido">
       </div>
     </div>
 
@@ -34,7 +38,9 @@
 
       <input class="form-control"
              type="email"
-             placeholder="Correo electrónico">
+             placeholder="Correo electrónico"
+             name="email"
+             [(ngModel)]="usuario.email">
     </div>
   </div>
 
