@@ -8,10 +8,16 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateComponent {
 
+  // usuario: Usuario = {
+  //   name: 'Lionel',
+  //   apellido: 'Tolosa',
+  //   email: '',
+  // };
+
   usuario: Usuario = {
-    nombre: 'Lionel',
-    apellido: 'Tolosa',
-    email: '',
+    name: null,
+    apellido: null,
+    email: null,
   };
 
   constructor() { }
@@ -26,7 +32,7 @@ export class TemplateComponent {
 }
 
 interface Usuario {
-  nombre: string;
+  name: string;
   apellido: string;
   email: string;
 }
