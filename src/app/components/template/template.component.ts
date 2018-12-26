@@ -18,7 +18,31 @@ export class TemplateComponent {
     name: null,
     apellido: null,
     email: null,
+    pais: '',
+    sexo: null,
+    acepta: 'false'
   };
+
+  paises = [
+    {
+      codigo: 'VZL',
+      nombre: 'Venezuela'
+    },
+    {
+      codigo: 'ESP',
+      nombre: 'España'
+    },
+    {
+      codigo: 'CTL',
+      nombre: 'Catalunya'
+    },
+    {
+      codigo: 'ITL',
+      nombre: 'Italia'
+    }
+  ];
+
+  sexos: string[] = ['Hombre', 'Mujer', 'Sin definir'];
 
   constructor() { }
 
@@ -27,6 +51,8 @@ export class TemplateComponent {
     console.log('NgForm', forma );
     console.log('Valor forma', forma.value);
     console.log('Usuario', this.usuario);
+
+    console.log('Pais', this.paises );
   }
 
 }
@@ -35,4 +61,7 @@ interface Usuario {
   name: string;
   apellido: string;
   email: string;
+  pais: String;
+  sexo: boolean;
+  acepta: string;
 }

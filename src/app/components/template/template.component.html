@@ -1,82 +1,121 @@
 <h4>Formularios <small>template</small></h4>
 <hr>
 <form (submit)="save(forma)" #forma="ngForm" novalidate="">
-
-  <div>
-
-    <div class="form-group row"
-        [ngClass]="{ 'has-danger': name?.errors?.minlength || name?.errors?.required }">
-        <label class="col-2 col-form-label">Name</label>
+    <div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Name</label>
+                <div class="col-8">
+                <input class="form-control"
+                    [ngClass]="{ 'is-invalid': (name?.errors?.minlength || name?.errors?.required) && name.touched }"
+                    type="text"
+                    placeholder="Nombre"
+                    name="name"
+                    [(ngModel)]="usuario.name"
+                    minlength="5"
+                    required
+                    #name="ngModel">
+                <div *ngIf="name?.errors?.required"
+                      class="invalid-feedback">
+                    Aqueste camp is requerid
+                </div>
+                <div *ngIf="name?.errors?.minlength"
+                      class="invalid-feedback">
+                    Por lo menos {{ name?.errors.minlength.requiredLength}} caracteres
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Apellido</label>
             <div class="col-8">
-            <input class="form-control"
-               type="text"
-               placeholder="Nombre"
-               name="name"
-               [(ngModel)]="usuario.name"
-               minlength="5"
-               required
-               #name="ngModel">
-               
-            <div *ngIf="name?.errors?.required"
+                <input class="form-control"
+                    [ngClass]="{ 'is-invalid': apellido?.errors?.required && name.touched }"
+                    type="text"
+                    placeholder="Apellido"
+                    name="apellido"
+                    [(ngModel)]="usuario.apellido"
+                    required
+                    #apellido="ngModel">
+                    <div *ngIf="apellido?.errors?.required"
+                        class="invalid-feedback">
+                        Aqueste camp is requerid
+                    </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Pais</label>
+            <select class="form-control" 
+                    id="exampleFormControlSelect1"
+                    name="pais"
+                    [(ngModel)]="usuario.pais">
+                <option value="">Seleccione un pais</option>
+                <option *ngFor="let pais of paises"
+                         [value]="pais.codigo"> 
+                        {{pais.nombre}} 
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div *ngFor="let s of sexos"
+                  class="form-check">
+                <input class="form-check-input" 
+                       type="radio" 
+                       name="exampleRadios" 
+                       id="exampleRadios1" 
+                       [value]='s'
+                       checked
+                       [(ngModel)]="usuario.sexo">
+                <label class="form-check-label" for="exampleRadios1">
+                    {{ s }}
+                </label>
+            </div>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" 
+                   type="checkbox" 
+                   value="" 
+                   id="defaultCheck1"
+                   [(ngModel)]="usuario.acepta"
+                   name="acepta"
+                   requiredx>
+            <label class="form-check-label"
+                   for="defaultCheck1">
+                Acepta las condiciones
+            </label>
+        </div>
+
+        <pre>{{ usuario | json }}</pre>
+    </div>
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Correo</label>
+        <div class="col-md-8">
+        <input class="form-control"
+                type="email"
+                placeholder="Correo electrónico"
+                name="email"
+                [(ngModel)]="usuario.email"
+                [ngClass]="{ 'is-invalid': (email?.errors?.pattern || email?.errors?.required) && name.touched }"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                #email="ngModel">
+            <div *ngIf="email?.errors?.required"
                   class="invalid-feedback">
                 Aqueste camp is requerid
             </div>
-            <div *ngIf="name?.errors?.minlength">
-                Por lo menos {{ name?.errors.minlength.requiredLength}} caracteres
+            <div *ngIf="email?.errors?.pattern"
+                  class="invalid-feedback">
+                Email no valido
             </div>
         </div>
     </div>
-    
     <div class="form-group row">
-      <label class="col-2 col-form-label">Apellido</label>
-      <div class="col-8">
-
-        <input class="form-control"
-               type="text"
-               placeholder="Apellido"
-               name="apellido"
-               [(ngModel)]="usuario.apellido"
-               required
-               #apellido="ngModel">
-            <div *ngIf="apellido?.errors?.required">
-                Aqueste camp is requerid
-            </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Correo</label>
-    <div class="col-md-8">
-
-      <input class="form-control"
-             type="email"
-             placeholder="Correo electrónico"
-             name="email"
-             [(ngModel)]="usuario.email"
-             required
-             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-             #email="ngModel">
-
-        <div *ngIf="email?.errors?.required">
-            Aqueste camp is requerid
-        </div>
-        <div *ngIf="email?.errors?.pattern">
-            Email no valido
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+        <button type="submit" 
+                class="btn btn-outline-primary"
+                [disabled]="!forma.valid">
+            Guardar
+        </button>
         </div>
     </div>
-  </div>
-
-
-
-  <div class="form-group row">
-    <label class="col-2 col-form-label">&nbsp;</label>
-    <div class="input-group col-md-8">
-      <button type="submit" class="btn btn-outline-primary">
-        Guardar
-      </button>
-    </div>
-  </div>
-
 </form>
