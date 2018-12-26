@@ -1,3 +1,104 @@
-<p>
-  data works!
-</p>
+<h4>Formularios <small>Data</small></h4>
+<hr>
+<form [formGroup]='forma' 
+      (ngSubmit)='saveChanges()'>
+    <div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Nombre</label>
+            <div class="col-8">
+                <input class="form-control"
+                       [ngClass]="{ 'is-invalid': !forma.get('name').valid }"
+                       type="text" 
+                       placeholder="name"
+                       formControlName="name">
+                    <div *ngIf="forma.controls['name'].errors?.required"
+                          class="invalid-feedback">
+                        Aqueste camp is requerid
+                    </div>
+                    <div *ngIf="forma.controls['name'].errors?.minlength"
+                          class="invalid-feedback">
+                        Por lo menos 3 caracteres
+                    </div>
+                    <div *ngIf="forma.controls['name'].errors?.pattern"
+                          class="invalid-feedback">
+                          Nombre no calificado
+                    </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Last Name</label>
+            <div class="col-8">
+                <input class="form-control"
+                        [ngClass]="{ 'is-invalid': !forma.get('lastName').valid }"
+                        type="text" 
+                        placeholder="lastName"
+                        formControlName="lastName">
+                    <div *ngIf="forma.controls['lastName'].errors?.required"
+                            class="invalid-feedback">
+                        Aqueste camp is requerid
+                    </div>
+                    <div *ngIf="forma.controls['lastName'].errors?.minlength"
+                            class="invalid-feedback">
+                        Por lo menos 3 caracteres
+                    </div>
+                    <div *ngIf="forma.controls['lastName'].errors?.pattern"
+                            class="invalid-feedback">
+                            Last Name no calificado
+                    </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Age</label>
+            <div class="col-8">
+                <input class="form-control"
+                        [ngClass]="{ 'is-invalid': !forma.get('age').valid }"
+                        type="text" 
+                        placeholder="age"
+                        formControlName="age">
+                    <div *ngIf="forma.controls['age'].errors?.required"
+                            class="invalid-feedback">
+                        Aqueste camp is requerid
+                    </div>
+                    <div *ngIf="forma.controls['age'].errors?.minlength"
+                            class="invalid-feedback">
+                        Por lo menos 2 caracteres
+                    </div>
+                    <div *ngIf="forma.controls['age'].errors?.pattern"
+                            class="invalid-feedback">
+                            Age no calificado
+                    </div>
+            </div>
+        </div>
+
+        <!-- <div class="form-group row">
+            <label class="col-2 col-form-label">Apellido</label>
+            <div class="col-8">
+                <input class="form-control"
+                       type="text" 
+                       placeholder="Apellido"
+                       formControlName="apellido">
+            </div>
+        </div> -->
+    </div>
+    <!-- <div class="form-group row">
+        <label class="col-2 col-form-label">Correo</label>
+        <div class="col-md-8">
+            <input class="form-control" 
+                   type="email" 
+                   placeholder="Correo electrónico"
+                   formControlName="correo">
+        </div>
+    </div> -->
+    <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+            <button type="submit" 
+                    class="btn btn-outline-primary"
+                    [disabled]="!forma.valid">
+                Guardar
+            </button>
+        </div>
+    </div>
+
+    {{ forma.valid }}
+</form>
