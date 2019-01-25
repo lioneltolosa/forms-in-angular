@@ -8,7 +8,8 @@ import { TemplateComponent } from './components/template/template.component';
 import { DataComponent } from './components/data/data.component';
 import { InputComponent } from './components/input/input.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
+import { ReactiveFormsComponent } from './form/components/reactive-forms/reactive-forms.component';
+import { ProfileEditorComponent } from './form/components/profile-editor/profile-editor.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsComponent } from './components/reactive-forms/reactive-for
     DataComponent,
     InputComponent,
     NavbarComponent,
-    ReactiveFormsComponent
+    ReactiveFormsComponent,
+    ProfileEditorComponent
   ],
   imports: [
     BrowserModule,
