@@ -21,21 +21,22 @@ export class ProfileEditorComponent implements OnInit {
     //     })
     // });
 
-    profileForm = this.fb.group({
+    profileForm = this.formBuilder.group({
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
-        address: this.fb.group({
+        email: ['', Validators.email],
+        address: this.formBuilder.group({
             street: [''],
             city: [''],
             state: [''],
             zip: ['', Validators.maxLength(5)],
         }),
-        aliases: this.fb.array([
-            this.fb.control('')
+        aliases: this.formBuilder.array([
+            this.formBuilder.control('')
         ])
     });
 
-    constructor(private fb: FormBuilder) { }
+    constructor(private formBuilder: FormBuilder) { }
 
     ngOnInit() {
     }
@@ -58,7 +59,7 @@ export class ProfileEditorComponent implements OnInit {
     }
 
     addAlias() {
-        this.aliases.push(this.fb.control(''));
+        this.aliases.push(this.formBuilder.control(''));
     }
 
 }
