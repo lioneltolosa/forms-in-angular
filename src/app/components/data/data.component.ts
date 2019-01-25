@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { REGEX_NAME, REGEX_AGE, REGEX_EMAIL, REGEX_PHONE } from '../constants';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { REGEX_NAME, REGEX_AGE } from '../constants';
 
 @Component({
   selector: 'app-data',
@@ -20,9 +20,10 @@ export class DataComponent {
   // };
 
   usuario: User = {
-    name: null,
-    lastName: null,
-    age: null,
+    name: 'Lionel',
+    lastName: 'Tolosa',
+    age: 31,
+    // pasatiempos: ['Correr', 'Estudiar', 'Dormir']
   };
 
   constructor() {
@@ -54,13 +55,25 @@ export class DataComponent {
       age: new FormControl(null, [
         Validators.required,
         Validators.pattern(REGEX_AGE)
-      ])
+      ]),
+      //   pasatiempos: new FormArray([
+      //     new FormControl('Correr', Validators.required)
+      // ])
     });
+
+    this.forma.setValue( this.usuario );
   }
 
   saveChanges() {
     console.log(this.forma.value);
     console.log(this.forma);
+
+    this.forma.reset({
+      name: '',
+      lastName: '',
+      age: '',
+    });
+
   }
 }
 
@@ -68,5 +81,6 @@ interface User {
   name: string;
   lastName: string;
   age: number;
+  // pasatiempos: any;
 }
 

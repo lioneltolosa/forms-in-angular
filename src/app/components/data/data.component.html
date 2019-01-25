@@ -1,7 +1,6 @@
-<h4>Formularios <small>Data</small></h4>
+<h4 class="mt-4">Formularios <small>Data</small></h4>
 <hr>
-<div class="container">
-        <form [formGroup]='forma' 
+    <form [formGroup]='forma' 
         (ngSubmit)='saveChanges()'>
       <div>
           <div class="form-group row">
@@ -104,4 +103,3 @@
   
       {{ forma.valid }}
   </form>
-</div>
