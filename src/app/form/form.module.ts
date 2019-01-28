@@ -20,7 +20,8 @@ import { PersonalDataComponent } from './components/personal-data/personal-data.
     exports: [
         ReactiveFormsComponent,
         ProfileEditorComponent,
-        CountriesComponent
+        CountriesComponent,
+        PersonalDataComponent
     ]
 })
 export class FormModule { }

@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReactiveFormsComponent } from './form/components/reactive-forms/reactive-forms.component';
 import { ProfileEditorComponent } from './form/components/profile-editor/profile-editor.component';
 import { CountriesComponent } from './form/components/countries/countries.component';
+import { PersonalDataComponent } from './form/components/personal-data/personal-data.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CountriesComponent } from './form/components/countries/countries.compon
     NavbarComponent,
     ReactiveFormsComponent,
     ProfileEditorComponent,
-    CountriesComponent
+    CountriesComponent,
+    PersonalDataComponent
   ],
   imports: [
     BrowserModule,
