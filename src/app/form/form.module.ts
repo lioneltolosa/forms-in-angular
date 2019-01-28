@@ -5,13 +5,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileEditorComponent } from './components/profile-editor/profile-editor.component';
 import { CountriesComponent } from './components/countries/countries.component';
 import { PersonalDataComponent } from './components/personal-data/personal-data.component';
+import { InputGenericComponent } from './shared/input-generic/input-generic.component';
 
 @NgModule({
     declarations: [
         ReactiveFormsComponent,
         ProfileEditorComponent,
         CountriesComponent,
-        PersonalDataComponent
+        PersonalDataComponent,
+        InputGenericComponent
     ],
     imports: [
         CommonModule,
@@ -21,7 +23,8 @@ import { PersonalDataComponent } from './components/personal-data/personal-data.
         ReactiveFormsComponent,
         ProfileEditorComponent,
         CountriesComponent,
-        PersonalDataComponent
+        PersonalDataComponent,
+        InputGenericComponent
     ]
 })
 export class FormModule { }

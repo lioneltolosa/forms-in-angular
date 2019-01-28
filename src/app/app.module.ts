@@ -13,6 +13,7 @@ import { ReactiveFormsComponent } from './form/components/reactive-forms/reactiv
 import { ProfileEditorComponent } from './form/components/profile-editor/profile-editor.component';
 import { CountriesComponent } from './form/components/countries/countries.component';
 import { PersonalDataComponent } from './form/components/personal-data/personal-data.component';
+import { InputGenericComponent } from './form/shared/input-generic/input-generic.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PersonalDataComponent } from './form/components/personal-data/personal-
     ReactiveFormsComponent,
     ProfileEditorComponent,
     CountriesComponent,
-    PersonalDataComponent
+    PersonalDataComponent,
+    InputGenericComponent
   ],
   imports: [
     BrowserModule,
