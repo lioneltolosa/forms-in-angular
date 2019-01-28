@@ -1,24 +1,27 @@
-<div class="container mt-4">
-    <div class="row">
-        <div class="col">
-            <div class="form-group">
-                <label for="exampleFormControlInput1">
-                    Nombre
-                </label>
-                <input type="text" 
-                       class="form-control" 
-                       placeholder="Nombre">
-              </div>
+<form [formGroup]="personalData" (ngSubmit)="onSubmit()">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>First Name:</label>
+                    <input type="text" 
+                           class="form-control" 
+                           formControlName="firstName">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label>Last Name:</label>
+                    <input type="text" 
+                           class="form-control" 
+                           formControlName="lastName">
+                </div>
+            </div>
         </div>
-        <div class="col">
-            <div class="form-group">
-                <label for="exampleFormControlInput1">
-                       Apellido
-                </label>
-                <input type="text" 
-                       class="form-control"
-                       placeholder="Apellido">
-              </div>
-        </div>
+        <button class="btn btn-outline-success" 
+                type="submit" 
+                [disabled]="!personalData.valid">
+            Submit
+        </button>
     </div>
-</div>
+</form>
