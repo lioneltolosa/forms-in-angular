@@ -1,10 +1,9 @@
 <div class="form-group" 
     [formGroup]="group">
-    <label for="field" 
-           class="col-form-label">
+    <label class="col-form-label">
         {{nameField}} *
     </label>
     <input type="text" 
            class="form-control" 
-           formControlName="field">
+           [formControlName]="field">
 </div>
