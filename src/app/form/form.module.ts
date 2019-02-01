@@ -6,6 +6,7 @@ import { ProfileEditorComponent } from './components/profile-editor/profile-edit
 import { CountriesComponent } from './components/countries/countries.component';
 import { PersonalDataComponent } from './components/personal-data/personal-data.component';
 import { InputGenericComponent } from './shared/input-generic/input-generic.component';
+import { InputExampleComponent } from './shared/input-example/input-example.component';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { InputGenericComponent } from './shared/input-generic/input-generic.comp
         ProfileEditorComponent,
         CountriesComponent,
         PersonalDataComponent,
-        InputGenericComponent
+        InputGenericComponent,
+        InputExampleComponent
     ],
     imports: [
         CommonModule,
@@ -24,7 +26,8 @@ import { InputGenericComponent } from './shared/input-generic/input-generic.comp
         ProfileEditorComponent,
         CountriesComponent,
         PersonalDataComponent,
-        InputGenericComponent
+        InputGenericComponent,
+        InputExampleComponent
     ]
 })
 export class FormModule { }

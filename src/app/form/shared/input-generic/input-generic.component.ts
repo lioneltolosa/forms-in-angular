@@ -9,8 +9,9 @@ import { FormGroup } from '@angular/forms';
 export class InputGenericComponent implements OnInit {
 
   @Input() group: FormGroup;
-  @Input() field: string;
+  @Input() fieldd: string;
   @Input() nameField: string;
+  @Input() placeholder: string;
 
   constructor() { }
 

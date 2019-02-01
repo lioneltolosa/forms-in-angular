@@ -14,6 +14,7 @@ import { ProfileEditorComponent } from './form/components/profile-editor/profile
 import { CountriesComponent } from './form/components/countries/countries.component';
 import { PersonalDataComponent } from './form/components/personal-data/personal-data.component';
 import { InputGenericComponent } from './form/shared/input-generic/input-generic.component';
+import { InputExampleComponent } from './form/shared/input-example/input-example.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { InputGenericComponent } from './form/shared/input-generic/input-generic
     ProfileEditorComponent,
     CountriesComponent,
     PersonalDataComponent,
-    InputGenericComponent
+    InputGenericComponent,
+    InputExampleComponent
   ],
   imports: [
     BrowserModule,

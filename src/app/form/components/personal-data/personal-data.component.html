@@ -4,14 +4,23 @@
             <div class="col">
                 <app-input-generic [nameField]="'Nombre'"
                                    [group]="personalData"
-                                   [field]="'firstName'">
+                                   [fieldd]="'firstName'"
+                                   [placeholder]="'Nombre'">
                 </app-input-generic>
             </div>
             <div class="col">
                 <app-input-generic [nameField]="'Apellido'"
                                    [group]="personalData"
-                                   [field]="'lastName'">
+                                   [fieldd]="'lastName'"
+                                   [placeholder]="'Apellido'">
                 </app-input-generic>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <app-input-example bankName="RBC" 
+                                   account-id="4747">
+                </app-input-example>
             </div>
         </div>
         <button class="btn btn-outline-success" 
