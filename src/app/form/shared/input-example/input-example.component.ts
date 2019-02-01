@@ -8,8 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class InputExampleComponent implements OnInit {
 
   @Input() bankName: string;
-  // tslint:disable-next-line:no-input-rename
-  @Input('account-id') id: string;
+  // @Input('account-id') id: string;
+
+  @Input() id: string;
 
   constructor() { }
 
